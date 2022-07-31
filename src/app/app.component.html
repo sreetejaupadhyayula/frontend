@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-4">
+      <app-button buttonName="Google status" statusType="google" (onBtnClick)="onClickEventReceived($event)"></app-button>
+    </div>
+    <div class="col-4">
+      <app-button buttonName="Amazon status" statusType="amazon" (onBtnClick)="onClickEventReceived($event)"></app-button>
+    </div>
+    <div class="col-4">
+      <app-button buttonName="All status" statusType="all" (onBtnClick)="onClickEventReceived($event)"></app-button>
+    </div>
+  </div>
+
+  <div class="pt-5" *ngIf="!success">
+    <div class="alert alert-danger" role="alert">
+      There was a problem, please try again!!
+    </div>
+  </div>
+  
+
+  <div class="row p-5">
+    <div class="col-12">
+      <div *ngFor="let res of response" class="pb-3">
+        <div><strong>Url:</strong> {{res.url}}</div>
+        <div><strong>Status:</strong> {{res.statusCode}}</div>
+        <div><strong>Duration:</strong> {{res.duration}}</div>
+        <div><strong>Date:</strong> {{res.date | date :'short'}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
